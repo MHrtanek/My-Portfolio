@@ -391,7 +391,7 @@ body { overflow-x: hidden; }
 
 /* ── CONTACT ── */
 .contact__sub { color: var(--muted); font-size: 0.8rem; margin-top: -2rem; margin-bottom: 2rem; }
-.contact__layout { display: flex; flex-direction: column; gap: 2rem; max-width: 600px; }
+.contact__layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2.5rem; align-items: start; max-width: 900px; }
 .contact__links { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
 .contact__card { display: grid; grid-template-columns: 80px 1fr auto; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; background: var(--card-bg); text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border); transition: background 0.15s; }
 .contact__card:last-child { border-bottom: none; }
@@ -441,7 +441,7 @@ body { overflow-x: hidden; }
   .skill-card { border-right: none; border-bottom: 1px solid var(--border); }
   .projects__grid { grid-template-columns: 1fr; }
   .project-card { border-right: none; border-bottom: 1px solid var(--border); }
-  .contact__layout { flex-direction: column; gap: 2rem; }
+  .contact__layout { grid-template-columns: 1fr; gap: 2rem; }
   .footer { flex-direction: column; gap: 0.5rem; padding: 1rem 1.5rem; }
   .lb__prev { left: 0.5rem; }
   .lb__next { right: 0.5rem; }

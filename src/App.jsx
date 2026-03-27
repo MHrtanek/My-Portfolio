@@ -394,17 +394,17 @@ export default function App() {
                   <p className="station__place">{item.place}</p>
                   {item.uni && (
                     <div className="station__unis">
-                      <a href="https://www.vsb.cz/cs/fakulta/fit/" target="_blank" rel="noreferrer" className="uni-link">
+                      <a href="https://www.vsb.cz/cs" target="_blank" rel="noreferrer" className="uni-link">
                         <span className="uni-link__name">VŠB-TUO</span>
                         <span className="uni-link__sub">Ostrava · KIT</span>
                         <span className="uni-link__arr">&gt;</span>
                       </a>
-                      <a href="https://www.uniza.sk/index.php/sk/fakulty/feit" target="_blank" rel="noreferrer" className="uni-link">
+                      <a href="https://feit.uniza.sk/" target="_blank" rel="noreferrer" className="uni-link">
                         <span className="uni-link__name">UNIZA FEIT</span>
                         <span className="uni-link__sub">Žilina · Elektrotechnika</span>
                         <span className="uni-link__arr">&gt;</span>
                       </a>
-                      <a href="https://fri.uniza.sk" target="_blank" rel="noreferrer" className="uni-link">
+                      <a href="https://www.fri.uniza.sk/" target="_blank" rel="noreferrer" className="uni-link">
                         <span className="uni-link__name">UNIZA FRI</span>
                         <span className="uni-link__sub">Žilina · Informatika</span>
                         <span className="uni-link__arr">&gt;</span>
