@@ -166,7 +166,14 @@ const PROJECTS = [
     desc: { SK: "Android aplikácia pre sledovanie hotovostných výdavkov. Maturitná práca. Od konceptu po finálny produkt.", EN: "Android app for tracking cash expenses. Final thesis. From concept to finished product.", DE: "Android-App zur Verfolgung von Barausgaben. Abschlussprojekt.", CS: "Android aplikace pro sledování hotovostních výdajů. Maturitní práce." },
     tags: ["Kotlin", "Android Studio", "SharedPreferences"],
     link: "https://github.com/MHrtanek/funds_app",
-    images: [],
+    images: [
+      "screenshots/Appka01.png",
+      "screenshots/Appka02.png",
+      "screenshots/Appka03.png",
+      "screenshots/Appka04.png",
+      "screenshots/Appka05.png",
+      "screenshots/Appka06.png",
+    ],
   },
   {
     id: 2,
@@ -174,15 +181,26 @@ const PROJECTS = [
     desc: { SK: "Webová aplikácia pre automatické porovnávanie a validáciu bankových výpisov vo formáte XML. Nasadené na AWS.", EN: "Web app for automatic comparison and validation of bank statements in XML. Deployed on AWS.", DE: "Web-App zum Vergleich von Kontoauszügen im XML-Format. Auf AWS deployed.", CS: "Webová aplikace pro porovnávání XML bankovních výpisů. Nasazeno na AWS." },
     tags: ["TypeScript", "HTML", "CSS", "AWS", "Git"],
     link: "https://github.com/MHrtanek",
-    images: [],
+    images: [
+      "screenshots/ValidatorO1.png",
+      "screenshots/Validator02.png",
+      "screenshots/Validator03.png",
+      "screenshots/Validator04.png",
+      "screenshots/Validator05.png",
+      "screenshots/Validator06.png",
+    ],
   },
   {
     id: 3,
-    title: "Ekip Europa Web",
+    title: "Vinyl E-Shop",
     desc: { SK: "Webová stránka vytvorená počas Erasmus+ stáže v Málage. React.js, HTML/CSS, phpMyAdmin.", EN: "Website built during Erasmus+ internship in Málaga. React.js, HTML/CSS, phpMyAdmin.", DE: "Website während des Erasmus+ Praktikums in Málaga. React.js, HTML/CSS, phpMyAdmin.", CS: "Webová stránka vytvořená během Erasmus+ stáže v Málaze. React.js, HTML/CSS, phpMyAdmin." },
     tags: ["React.js", "HTML", "CSS", "phpMyAdmin"],
     link: "https://github.com/MHrtanek",
-    images: [],
+    images: [
+      "screenshots/Vinyl_Prihlasenie_do_admin_panelu.png", 
+      "screenshots/Vinyl_znazornenie_produktu.png",
+      "screenshots/Vinyl_prudukty.png",
+    ],
   },
 ];
 
