@@ -217,6 +217,21 @@ const PROJECTS = [
       "screenshots/Vinyl_prudukty.png",
     ],
   },
+  {
+    id: 4,
+    title: "Domovník",
+    desc: {
+      SK: "Webová aplikácia pre správu budov a bytov. Evidencia nájomníkov, platieb a správy budovy.",
+      EN: "Web application for building and apartment management. Tenant records, payments and property administration.",
+      DE: "Webanwendung für Gebäude- und Wohnungsverwaltung. Mieterverwaltung, Zahlungen und Hausverwaltung.",
+      CS: "Webová aplikace pro správu budov a bytů. Evidence nájemníků, plateb a správy budovy.",
+    },
+    tags: ["Next.js", "TypeScript", "MySQL"],
+    link: "https://github.com/MHrtanek",
+    liveLink: "https://domovnik.online",
+    live: true,
+    images: [],
+  },
 ];
 
 const SKILLS = [
@@ -330,6 +345,28 @@ export default function App() {
         <div className="hero__orb hero__orb--2" />
         <div className="hero__content">
           <motion.div variants={stagger} initial="hidden" animate="visible" className="hero__stack">
+            <motion.div
+              variants={fadeUp}
+              className="hero__avatar-wrap"
+            >
+              <div className="hero__avatar">
+                <img
+                  src="/avatar.jpg"
+                  alt="Matúš Hrtánek"
+                  className="hero__avatar-img"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextSibling.style.display = "flex";
+                  }}
+                />
+                <span className="hero__avatar-icon" style={{ display: "none" }}>
+                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+                    <circle cx="40" cy="28" r="16" fill="currentColor" opacity="0.35" />
+                    <ellipse cx="40" cy="66" rx="26" ry="16" fill="currentColor" opacity="0.25" />
+                  </svg>
+                </span>
+              </div>
+            </motion.div>
             <motion.div variants={fadeUp} className="hero__badge">
               <span className="badge-dot" />
               {t.available}
@@ -493,6 +530,7 @@ export default function App() {
                   ) : (
                     <div className="project-card__placeholder" />
                   )}
+                  {p.live && <div className="project-card__live-badge">Live</div>}
                 </div>
                 <div className="project-card__body">
                   <h3>{p.title}</h3>
@@ -502,15 +540,28 @@ export default function App() {
                       <span key={tag} className="tag">{tag}</span>
                     ))}
                   </div>
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-link"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {t.viewProject}
-                  </a>
+                  <div className="project-card__links">
+                    {p.liveLink && (
+                      <a
+                        href={p.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-link project-link--live"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        ↗ Live
+                      </a>
+                    )}
+                    <a
+                      href={p.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="project-link"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {t.viewProject}
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -658,12 +709,15 @@ export default function App() {
               </div>
               {formStatus === "ok" ? (
                 <div className="form__status form__status--ok">{t.formOk}</div>
-              ) : formStatus === "err" ? (
-                <div className="form__status form__status--err">{t.formErr}</div>
               ) : (
-                <button type="submit" className="btn btn--primary" disabled={formStatus === "sending"}>
-                  {formStatus === "sending" ? t.formSending : t.formSend}
-                </button>
+                <>
+                  {formStatus === "err" && (
+                    <div className="form__status form__status--err">{t.formErr}</div>
+                  )}
+                  <button type="submit" className="btn btn--primary" disabled={formStatus === "sending"}>
+                    {formStatus === "sending" ? t.formSending : t.formSend}
+                  </button>
+                </>
               )}
             </motion.form>
           </div>
