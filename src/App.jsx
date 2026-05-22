@@ -44,8 +44,8 @@ const TRANSLATIONS = {
       { year: "2022", title: "Nástup do SSOSZA", place: "Žilina", desc: "Začiatok štúdia IT — základy programovania, sietí a digitálnych technológií.", done: true },
       { year: "2024", title: "CCNA certifikát", place: "Cisco Networking Academy", desc: "Úspešne zložený certifikát — základy sietí, smerovanie, prepínanie, TCP/IP.", done: true },
       { year: "03–04/2025", title: "Erasmus+ stáž", place: "Ekip Europa · Málaga 🇪🇸", desc: "Vybraný spomedzi 10 najlepších žiakov. Upgrade 45 PC, konfigurácia sietí, tvorba webu v React.js.", done: true },
-      { year: "05/2026", title: "Maturita", place: "SSOSZA · Žilina", desc: "Maturitný odbor 2569 M — Informačné a digitálne technológie.", done: false },
-      { year: "2026+", title: "Vysoká škola", place: "VŠB-TUO · Ostrava  ·  UNIZA · Žilina", desc: "Cieľ: Komunikačné a sieťové technológie. VŠB-TUO Ostrava (KIT) alebo UNIZA Žilina (FEIT/FRI). Rozhodnutie čoskoro.", done: false, uni: true },
+      { year: "05/2026", title: "Maturita", place: "SSOSZA · Žilina", desc: "Maturitný odbor 2569 M — Informačné a digitálne technológie.", done: true },
+      { year: "2026+", title: "Vysoká škola", place: "VŠB-TUO · Ostrava", desc: "Cieľ: Komunikačné a sieťové technológie. VŠB-TUO Ostrava (KIT).", done: false, uni: true },
       { year: "2026+", title: "B2 certifikát — Angličtina", place: "Cieľ", desc: "Chcem získať certifikát B2 z anglického jazyka a posunúť sa na vyššiu úroveň.", done: false },
     ],
   },
@@ -80,8 +80,8 @@ const TRANSLATIONS = {
       { year: "2022", title: "Enrolled at SSOSZA", place: "Žilina", desc: "Started IT studies — programming, networking and digital technologies.", done: true },
       { year: "2024", title: "CCNA Certificate", place: "Cisco Networking Academy", desc: "Successfully passed — networking basics, routing, switching, TCP/IP.", done: true },
       { year: "03–04/2025", title: "Erasmus+ Internship", place: "Ekip Europa · Málaga 🇪🇸", desc: "Selected among top 10 students. Upgraded 45 PCs, configured networks, built website in React.js.", done: true },
-      { year: "05/2026", title: "Graduation", place: "SSOSZA · Žilina", desc: "IT programme 2569 M — Information and Digital Technologies.", done: false },
-      { year: "2026+", title: "University", place: "VŠB-TUO · Ostrava  ·  UNIZA · Žilina", desc: "Goal: Communication and Network Technologies. VŠB-TUO Ostrava (KIT) or UNIZA Žilina (FEIT/FRI). Decision coming soon.", done: false, uni: true },
+      { year: "05/2026", title: "Graduation", place: "SSOSZA · Žilina", desc: "IT programme 2569 M — Information and Digital Technologies.", done: true },
+      { year: "2026+", title: "University", place: "VŠB-TUO · Ostrava", desc: "Goal: Communication and Network Technologies. VŠB-TUO Ostrava (KIT).", done: false, uni: true },
       { year: "2026+", title: "B2 English Certificate", place: "Goal", desc: "Aiming to obtain a B2 English certificate and reach a higher level of proficiency.", done: false },
     ],
   },
@@ -116,8 +116,8 @@ const TRANSLATIONS = {
       { year: "2022", title: "Eintritt in SSOSZA", place: "Žilina", desc: "Beginn des IT-Studiums — Programmierung, Netzwerke, digitale Technologien.", done: true },
       { year: "2024", title: "CCNA-Zertifikat", place: "Cisco Networking Academy", desc: "Erfolgreich bestanden — Netzwerkgrundlagen, Routing, Switching, TCP/IP.", done: true },
       { year: "03–04/2025", title: "Erasmus+ Praktikum", place: "Ekip Europa · Málaga 🇪🇸", desc: "Unter den Top 10 Schülern ausgewählt. 45 PCs aufgerüstet, Netzwerke konfiguriert, Website in React.js erstellt.", done: true },
-      { year: "05/2026", title: "Abitur", place: "SSOSZA · Žilina", desc: "IT-Programm 2569 M — Informations- und Digitaltechnologien.", done: false },
-      { year: "2026+", title: "Universität", place: "VŠB-TUO · Ostrava  ·  UNIZA · Žilina", desc: "Ziel: Kommunikations- und Netzwerktechnologien. VŠB-TUO Ostrava (KIT) oder UNIZA Žilina (FEIT/FRI). Entscheidung demnächst.", done: false, uni: true },
+      { year: "05/2026", title: "Abitur", place: "SSOSZA · Žilina", desc: "IT-Programm 2569 M — Informations- und Digitaltechnologien.", done: true },
+      { year: "2026+", title: "Universität", place: "VŠB-TUO · Ostrava", desc: "Ziel: Kommunikations- und Netzwerktechnologien. VŠB-TUO Ostrava (KIT).", done: false, uni: true },
       { year: "2026+", title: "B2-Zertifikat Englisch", place: "Ziel", desc: "Ich möchte ein B2-Zertifikat in Englisch erwerben.", done: false },
     ],
   },
@@ -152,8 +152,8 @@ const TRANSLATIONS = {
       { year: "2022", title: "Nástup do SSOSZA", place: "Žilina", desc: "Začátek IT studia — základy programování, sítí a digitálních technologií.", done: true },
       { year: "2024", title: "CCNA certifikát", place: "Cisco Networking Academy", desc: "Úspěšně složen — základy sítí, směrování, přepínání, TCP/IP.", done: true },
       { year: "03–04/2025", title: "Erasmus+ stáž", place: "Ekip Europa · Málaga 🇪🇸", desc: "Vybrán mezi 10 nejlepšími žáky. Upgrade 45 PC, konfigurace sítí, tvorba webu v React.js.", done: true },
-      { year: "05/2026", title: "Maturita", place: "SSOSZA · Žilina", desc: "Maturitní obor 2569 M — Informační a digitální technologie.", done: false },
-      { year: "2026+", title: "Vysoká škola", place: "VŠB-TUO · Ostrava  ·  UNIZA · Žilina", desc: "Cíl: Komunikační a síťové technologie. VŠB-TUO Ostrava (KIT) nebo UNIZA Žilina (FEIT/FRI). Rozhodnutí brzy.", done: false, uni: true },
+      { year: "05/2026", title: "Maturita", place: "SSOSZA · Žilina", desc: "Maturitní obor 2569 M — Informační a digitální technologie.", done: true },
+      { year: "2026+", title: "Vysoká škola", place: "VŠB-TUO · Ostrava", desc: "Cíl: Komunikační a síťové technologie. VŠB-TUO Ostrava (KIT).", done: false, uni: true },
       { year: "2026+", title: "B2 certifikát — Angličtina", place: "Cíl", desc: "Chci získat certifikát B2 z anglického jazyka a posunout se na vyšší úroveň.", done: false },
     ],
   },
@@ -612,12 +612,6 @@ export default function App() {
                     <div className="timeline__unis">
                       <a href="https://www.vsb.cz/cs" target="_blank" rel="noreferrer" className="uni-link">
                         VŠB-TUO Ostrava <span>→</span>
-                      </a>
-                      <a href="https://feit.uniza.sk/" target="_blank" rel="noreferrer" className="uni-link">
-                        UNIZA FEIT <span>→</span>
-                      </a>
-                      <a href="https://www.fri.uniza.sk/" target="_blank" rel="noreferrer" className="uni-link">
-                        UNIZA FRI <span>→</span>
                       </a>
                     </div>
                   )}
