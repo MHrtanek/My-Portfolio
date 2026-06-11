@@ -21,28 +21,6 @@ export default function Home() {
   const { lang } = useLang();
   const t = TRANSLATIONS[lang];
   const [photoError, setPhotoError] = useState(false);
-  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-  const [formStatus, setFormStatus] = useState(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus("sending");
-    try {
-      const res = await fetch("https://formspree.io/f/mgopovzb", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(formState),
-      });
-      if (res.ok) {
-        setFormStatus("ok");
-        setFormState({ name: "", email: "", message: "" });
-      } else {
-        setFormStatus("err");
-      }
-    } catch {
-      setFormStatus("err");
-    }
-  };
 
   return (
     <>
@@ -53,7 +31,8 @@ export default function Home() {
         initial="hidden"
         animate="visible"
       >
-        <div className="hero-content">
+        <div className="hero-bg-text" aria-hidden="true">MH</div>
+      <div className="hero-content">
           <div className="hero-left">
             <motion.h1 variants={fadeUp}>Matúš Hrtánek</motion.h1>
             <motion.div className="hero-school" variants={fadeUp}>
@@ -162,72 +141,25 @@ export default function Home() {
           >
             {t.contactTitle}
           </motion.h2>
-          <div className="contact-layout">
-            <div className="contact-info">
-              <p className="contact-sub">{t.contactSub}</p>
-              {[
-                { label: "Email", value: "hrtanekmatus02@gmail.com", href: "mailto:hrtanekmatus02@gmail.com" },
-                { label: "Phone", value: "+421 949 156 133", href: "tel:+421949156133" },
-                { label: "GitHub", value: "github.com/MHrtanek", href: "https://github.com/MHrtanek", external: true },
-              ].map(({ label, value, href, external }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="contact-card"
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noreferrer" : undefined}
-                >
-                  <span className="contact-label">{label}</span>
-                  <span className="contact-val">{value}</span>
-                  <span className="contact-arrow">→</span>
-                </a>
-              ))}
-            </div>
-
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-field">
-                <label>{t.formName}</label>
-                <input
-                  type="text"
-                  required
-                  placeholder={`${t.formName}...`}
-                  value={formState.name}
-                  onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))}
-                />
-              </div>
-              <div className="form-field">
-                <label>{t.formEmail}</label>
-                <input
-                  type="email"
-                  required
-                  placeholder={`${t.formEmail}...`}
-                  value={formState.email}
-                  onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
-                />
-              </div>
-              <div className="form-field">
-                <label>{t.formMsg}</label>
-                <textarea
-                  required
-                  rows={5}
-                  placeholder={`${t.formMsg}...`}
-                  value={formState.message}
-                  onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))}
-                />
-              </div>
-              {formStatus === "ok" ? (
-                <div className="form-status form-status--ok">{t.formOk}</div>
-              ) : (
-                <>
-                  {formStatus === "err" && (
-                    <div className="form-status form-status--err">{t.formErr}</div>
-                  )}
-                  <button type="submit" className="form-submit" disabled={formStatus === "sending"}>
-                    {formStatus === "sending" ? t.formSending : t.formSend}
-                  </button>
-                </>
-              )}
-            </form>
+          <div className="contact-info contact-info--centered">
+            <p className="contact-sub">{t.contactSub}</p>
+            {[
+              { label: "Email", value: "hrtanekmatus02@gmail.com", href: "mailto:hrtanekmatus02@gmail.com" },
+              { label: "Phone", value: "+421 949 156 133", href: "tel:+421949156133" },
+              { label: "GitHub", value: "github.com/MHrtanek", href: "https://github.com/MHrtanek", external: true },
+            ].map(({ label, value, href, external }) => (
+              <a
+                key={label}
+                href={href}
+                className="contact-card"
+                target={external ? "_blank" : undefined}
+                rel={external ? "noreferrer" : undefined}
+              >
+                <span className="contact-label">{label}</span>
+                <span className="contact-val">{value}</span>
+                <span className="contact-arrow">→</span>
+              </a>
+            ))}
           </div>
         </section>
       </div>
