@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Code2, Monitor, Network, Cpu, HardDrive, Bot } from "lucide-react";
 import { useLang } from "../context/LanguageContext";
 import { TRANSLATIONS } from "../data/translations";
+
+const SKILL_ICONS = [Code2, Monitor, Network, Cpu, HardDrive, Bot];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -114,9 +117,13 @@ export default function Home() {
         <div className="section">
           <h2 className="section-heading">{t.skillsTitle}</h2>
           <div className="skills-grid">
-            {t.skills.map((skill) => (
+            {t.skills.map((skill, i) => {
+              const Icon = SKILL_ICONS[i];
+              return (
               <Link key={skill.route} to={skill.route} className="skill-card">
-                <div className="skill-card-icon" />
+                <div className="skill-card-icon">
+                  <Icon size={28} color="#000" />
+                </div>
                 <h3>{skill.title}</h3>
                 <p>{skill.desc}</p>
                 <span className="skill-card-link">
@@ -124,7 +131,8 @@ export default function Home() {
                   <span className="skill-card-arrow">→</span>
                 </span>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

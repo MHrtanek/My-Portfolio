@@ -453,6 +453,10 @@ body {
   border-radius: 0.75rem;
   margin-bottom: 1.5rem;
   transition: border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .skill-card:hover .skill-card-icon {
