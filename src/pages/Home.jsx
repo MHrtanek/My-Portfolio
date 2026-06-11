@@ -58,7 +58,7 @@ export default function Home() {
             <motion.h1 variants={fadeUp}>Matúš Hrtánek</motion.h1>
             <motion.div className="hero-school" variants={fadeUp}>
               <span>{t.heroSchoolPrefix}</span>
-              <a href="https://ssosza.sk" target="_blank" rel="noreferrer">SSOSZA Žilina</a>
+              <a href="https://ssosza.edupage.org/" target="_blank" rel="noreferrer">SSOSZA Žilina</a>
             </motion.div>
             <motion.p className="hero-hook" variants={fadeUp}>{t.heroHook}</motion.p>
           </div>
