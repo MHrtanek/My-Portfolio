@@ -17,12 +17,12 @@ export const PROJECTS = [
     tags: ["Kotlin", "Android Studio", "SharedPreferences"],
     githubUrl: "https://github.com/MHrtanek/funds_app",
     images: [
-      "screenshots/Appka01.png",
-      "screenshots/Appka02.png",
-      "screenshots/Appka03.png",
-      "screenshots/Appka04.png",
-      "screenshots/Appka05.png",
-      "screenshots/Appka06.png",
+      "/screenshots/Appka01.png",
+      "/screenshots/Appka02.png",
+      "/screenshots/Appka03.png",
+      "/screenshots/Appka04.png",
+      "/screenshots/Appka05.png",
+      "/screenshots/Appka06.png",
     ],
   },
   {
@@ -43,12 +43,12 @@ export const PROJECTS = [
     tags: ["TypeScript", "HTML", "CSS", "AWS", "Git"],
     githubUrl: "https://github.com/MHrtanek",
     images: [
-      "screenshots/ValidatorO1.png",
-      "screenshots/Validator02.png",
-      "screenshots/Validator03.png",
-      "screenshots/Validator04.png",
-      "screenshots/Validator05.png",
-      "screenshots/Validator06.png",
+      "/screenshots/ValidatorO1.png",
+      "/screenshots/Validator02.png",
+      "/screenshots/Validator03.png",
+      "/screenshots/Validator04.png",
+      "/screenshots/Validator05.png",
+      "/screenshots/Validator06.png",
     ],
   },
   {
@@ -70,7 +70,7 @@ export const PROJECTS = [
     githubUrl: "https://github.com/MHrtanek",
     liveUrl: "https://domovnik.online",
     images: Array.from({ length: 28 }, (_, i) =>
-      `screenshots/domovnik-${String(i + 1).padStart(2, "0")}.png`
+      `/screenshots/domovnik-${String(i + 1).padStart(2, "0")}.png`
     ),
   },
 ];

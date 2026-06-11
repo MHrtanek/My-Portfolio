@@ -5,27 +5,34 @@ import { TRANSLATIONS } from "../data/translations";
 import { PROJECTS } from "../data/projects";
 import Lightbox from "../components/Lightbox";
 
-export default function Programming() {
-  const { lang } = useLang();
-  const t = TRANSLATIONS[lang];
-  const [lightbox, setLightbox] = useState(null);
+function ProjectCard({ project, lang, t, onOpenLightbox }) {
+  const [activeThumb, setActiveThumb] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  const openGallery = (project, idx = 0) => {
-    if (project.images.length === 0) return;
-    setLightbox({ images: project.images, index: idx });
+  const openLightbox = (idx) => {
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
+    onOpenLightbox(true);
   };
 
-  const closeLightbox = () => setLightbox(null);
-  const prevImg = () => setLightbox((l) => ({ ...l, index: (l.index - 1 + l.images.length) % l.images.length }));
-  const nextImg = () => setLightbox((l) => ({ ...l, index: (l.index + 1) % l.images.length }));
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    onOpenLightbox(false);
+  };
+
+  const prevImg = () =>
+    setLightboxIndex((i) => (i - 1 + project.images.length) % project.images.length);
+  const nextImg = () =>
+    setLightboxIndex((i) => (i + 1) % project.images.length);
 
   return (
     <>
       <AnimatePresence>
-        {lightbox && (
+        {lightboxOpen && (
           <Lightbox
-            images={lightbox.images}
-            index={lightbox.index}
+            images={project.images}
+            index={lightboxIndex}
             onClose={closeLightbox}
             onPrev={prevImg}
             onNext={nextImg}
@@ -33,51 +40,74 @@ export default function Programming() {
         )}
       </AnimatePresence>
 
-      <div className="page-section">
-        <h1 className="page-title">{t.progTitle}</h1>
-        <p className="page-subtitle">{t.progSubtitle}</p>
+      <div className="project-card">
+        {project.images.length > 0 && (
+          <>
+            <div className="project-preview" onClick={() => openLightbox(activeThumb)}>
+              <img src={project.images[activeThumb]} alt={project.title} />
+              <div className="preview-overlay">
+                <span>Zobraziť galériu ({project.images.length} fotiek)</span>
+              </div>
+            </div>
 
-        {PROJECTS.map((project) => (
-          <div key={project.id} className="project-card">
-            <h2>{project.title}</h2>
-            <p className="project-meta">{project.meta[lang]}</p>
-            <p className="project-desc">{project.desc[lang]}</p>
-            <div className="project-tags">
-              {project.tags.map((tag) => (
-                <span key={tag} className="tag">{tag}</span>
+            <div className="thumb-strip">
+              {project.images.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt=""
+                  className={`thumb${activeThumb === i ? " active" : ""}`}
+                  onClick={() => {
+                    setActiveThumb(i);
+                    openLightbox(i);
+                  }}
+                />
               ))}
             </div>
-            <div className="project-links">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-link"
-                >
-                  {t.viewApp}
-                </a>
-              )}
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="project-link--secondary project-link"
-              >
-                {t.viewGithub}
-              </a>
-              {project.images.length > 0 && (
-                <button
-                  className="gallery-trigger"
-                  onClick={() => openGallery(project)}
-                >
-                  📸 {project.images.length} photos
-                </button>
-              )}
-            </div>
-          </div>
-        ))}
+          </>
+        )}
+
+        <h2>{project.title}</h2>
+        <p className="project-meta">{project.meta[lang]}</p>
+        <p className="project-desc">{project.desc[lang]}</p>
+        <div className="project-tags">
+          {project.tags.map((tag) => (
+            <span key={tag} className="tag">{tag}</span>
+          ))}
+        </div>
+        <div className="project-links">
+          {project.liveUrl && (
+            <a href={project.liveUrl} target="_blank" rel="noreferrer" className="project-link">
+              {t.viewApp}
+            </a>
+          )}
+          <a href={project.githubUrl} target="_blank" rel="noreferrer" className="project-link project-link--secondary">
+            {t.viewGithub}
+          </a>
+        </div>
       </div>
     </>
+  );
+}
+
+export default function Programming() {
+  const { lang } = useLang();
+  const t = TRANSLATIONS[lang];
+
+  return (
+    <div className="page-section">
+      <h1 className="page-title">{t.progTitle}</h1>
+      <p className="page-subtitle">{t.progSubtitle}</p>
+
+      {PROJECTS.map((project) => (
+        <ProjectCard
+          key={project.id}
+          project={project}
+          lang={lang}
+          t={t}
+          onOpenLightbox={() => {}}
+        />
+      ))}
+    </div>
   );
 }

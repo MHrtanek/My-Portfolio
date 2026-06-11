@@ -3,42 +3,43 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
   useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose();
+    const handler = (e) => {
       if (e.key === "ArrowLeft") onPrev();
       if (e.key === "ArrowRight") onNext();
+      if (e.key === "Escape") onClose();
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose, onPrev, onNext]);
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onPrev, onNext, onClose]);
 
   return (
-    <AnimatePresence>
-      <motion.div
-        className="lightbox"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        onClick={onClose}
-      >
-        <button className="lb-close" onClick={onClose}>✕</button>
-        <button className="lb-prev" onClick={(e) => { e.stopPropagation(); onPrev(); }}>‹</button>
+    <motion.div
+      className="lightbox"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+    >
+      <button className="lb-close" onClick={onClose}>✕</button>
+      <div className="lb-counter">{index + 1} / {images.length}</div>
+      <button className="lb-prev" onClick={(e) => { e.stopPropagation(); onPrev(); }}>‹</button>
 
+      <AnimatePresence mode="wait">
         <motion.img
           key={index}
           className="lb-img"
           src={images[index]}
           alt=""
-          initial={{ opacity: 0, scale: 0.97 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.96 }}
           transition={{ duration: 0.2 }}
           onClick={(e) => e.stopPropagation()}
         />
+      </AnimatePresence>
 
-        <button className="lb-next" onClick={(e) => { e.stopPropagation(); onNext(); }}>›</button>
-        <div className="lb-counter">{index + 1} / {images.length}</div>
-      </motion.div>
-    </AnimatePresence>
+      <button className="lb-next" onClick={(e) => { e.stopPropagation(); onNext(); }}>›</button>
+    </motion.div>
   );
 }

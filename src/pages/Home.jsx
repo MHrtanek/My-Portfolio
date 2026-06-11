@@ -119,7 +119,10 @@ export default function Home() {
                 <div className="skill-card-icon" />
                 <h3>{skill.title}</h3>
                 <p>{skill.desc}</p>
-                <span className="skill-card-link">{skill.link}</span>
+                <span className="skill-card-link">
+                  {skill.link}
+                  <span className="skill-card-arrow">→</span>
+                </span>
               </Link>
             ))}
           </div>

@@ -306,6 +306,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 0 8px #f0f0f0, 0 0 0 16px #e8e8e8;
 }
 
 .hero-photo img {
@@ -327,6 +328,10 @@ body {
   text-align: center;
   padding: 2rem;
   background: var(--light);
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 .scroll-indicator {
@@ -489,6 +494,16 @@ body {
   background: var(--red);
   border-color: var(--red);
   color: var(--white);
+}
+
+.skill-card-arrow {
+  display: inline-block;
+  margin-left: 0.4rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-card-arrow {
+  transform: translateX(4px);
 }
 
 /* ─── PLANS ─── */
@@ -858,26 +873,88 @@ body {
   color: var(--white);
 }
 
-/* Gallery trigger */
-.gallery-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1rem;
-  border: 2px solid #ddd;
-  border-radius: 0.5rem;
-  background: var(--light);
-  color: var(--gray);
-  font-size: 0.85rem;
-  font-weight: 500;
+/* ─── PROJECT PREVIEW + THUMBSTRIP ─── */
+.project-preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 2px solid var(--black);
+  border-radius: 0.75rem;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.2s ease;
+  position: relative;
+  background: var(--light);
+  margin-bottom: 0.75rem;
 }
 
-.gallery-trigger:hover {
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-preview:hover img {
+  transform: scale(1.03);
+}
+
+.preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  transition: background 0.3s ease;
+}
+
+.project-preview:hover .preview-overlay {
+  background: rgba(0, 0, 0, 0.38);
+}
+
+.preview-overlay span {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.3s ease;
+}
+
+.project-preview:hover .preview-overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.thumb-strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.25rem 0 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+  margin-bottom: 1rem;
+}
+
+.thumb {
+  width: 80px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.55;
+}
+
+.thumb:hover,
+.thumb.active {
+  border-color: var(--black);
+  opacity: 1;
+}
+
+.thumb.active {
   border-color: var(--red);
-  color: var(--red);
 }
 
 /* ─── SKILL ITEM (subpages) ─── */
@@ -979,7 +1056,7 @@ body {
 
 .lb-counter {
   position: absolute;
-  bottom: 1.5rem;
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.8rem;
