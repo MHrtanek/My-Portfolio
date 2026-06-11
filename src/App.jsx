@@ -230,7 +230,7 @@ const PROJECTS = [
     link: "https://github.com/MHrtanek",
     liveLink: "https://domovnik.online",
     live: true,
-    images: Array.from({ length: 29 }, (_, i) =>
+    images: Array.from({ length: 28 }, (_, i) =>
       `screenshots/domovnik-${String(i + 1).padStart(2, "0")}.png`
     ),
   },
